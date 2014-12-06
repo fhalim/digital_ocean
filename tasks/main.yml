@@ -1,0 +1,17 @@
+- digital_ocean: >
+    state=present
+    command=droplet
+    name={{ inventory_hostname | regex_replace('\.', '-') }}
+    unique_name=yes
+    image_id={{ digital_ocean_image_id }}
+    size_id={{ digital_ocean_size_id }}
+    region_id={{ digital_ocean_region_id }}
+    ssh_key_ids={{ digital_ocean_ssh_key_ids }}
+  register: instance
+- debug: msg="ID is {{ instance.droplet.id }}"
+- debug: msg="IP is {{ instance.droplet.ip_address }}"
+- digital_ocean_domain: >
+   state=present
+   name="{{ inventory_hostname }}"
+   ip={{ instance.droplet.ip_address }}
+- wait_for: host="{{ inventory_hostname }}" port={{ digital_ocean_monitor_port }}
