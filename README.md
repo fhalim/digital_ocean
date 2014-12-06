@@ -31,6 +31,11 @@ Dependencies
 
 - Python dopy module
 
+Installing
+----------
+
+`sudo ansible-galaxy install fawad.digital_ocean`
+
 Example Playbook
 ----------------
 
@@ -42,7 +47,7 @@ digital_ocean_ssh_key_ids: 584065
 connection: local
 gather_facts: false
 roles:
-- digital_ocean
+- fawad.digital_ocean
 ```
 
 License
