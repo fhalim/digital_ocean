@@ -17,13 +17,13 @@ Also requires that the environment variables `DO_CLIENT_ID` and `DO_API_KEY` for
 Role Variables
 --------------
 
-| Variable                 | Default | Description                                 |
-|----------------------------------------------------------------------------------|
-|digital_ocean_image_id    |6372108  |DO Image ID                                  |
-|digital_ocean_size_id     |66       |DO Size ID                                   |
-|digital_ocean_region_id   |4        |DO Region ID                                 |
-|digital_ocean_monitor_port|22       |Port to connect to to verify machine liveness|
-|digital_ocean_ssh_key_ids |-        |SSH ID to set up on the VM                   |
+| Variable                   | Default  | Description                                   |
+| -------------------------- | -------- | --------------------------------------------- |
+| digital_ocean_image_id     | 6372108  | DO Image ID                                   |
+| digital_ocean_size_id      | 66       | DO Size ID                                    |
+| digital_ocean_region_id    | 4        | DO Region ID                                  |
+| digital_ocean_monitor_port | 22       | Port to connect to to verify machine liveness |
+| digital_ocean_ssh_key_ids  | -        | SSH ID to set up on the VM                    |
 
 
 Dependencies
@@ -42,12 +42,13 @@ Example Playbook
 ```yml
 ---
 - hosts: all
-vars:
-digital_ocean_ssh_key_ids: 584065
-connection: local
-gather_facts: false
-roles:
-- fawad.digital_ocean
+  vars:
+    digital_ocean_ssh_key_ids: 584065
+    connection: local
+    gather_facts: false
+
+  roles:
+    - fawad.digital_ocean
 ```
 
 License
